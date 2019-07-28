@@ -40,20 +40,6 @@ Busca uma rede social
 ```
 
 &nbsp;
-#### **DELETE** */social-network/{name}*
-Remove uma rede social existente
-
-*Retorno:*
-* 200: Rede social removida
-* 404: Rede social não encontrada
-```json
-{
-  "id": 1,
-  "name": "Twitter"
-}
-```
-
-&nbsp;
 ## User
 
 #### **POST** */social-network/{name}/user*
@@ -242,5 +228,19 @@ Desativa um usuário existente
   "name": "Mussum",
   "creation-date": "2019-07-28 12:05:10.887",
   "deactivate-date": "2019-07-28 15:12:45.512"
+}
+```
+
+&nbsp;
+#### **DELETE** */social-network/{name}*
+Remove uma rede social existente
+
+*Retorno:*
+* 200: Rede social removida
+* 404: Rede social não encontrada
+```json
+{
+  "id": 1,
+  "name": "Twitter"
 }
 ```
