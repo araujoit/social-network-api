@@ -1,0 +1,25 @@
+# Change default server ports
+server:
+  applicationConnectors:
+    - type: http
+      port: 9000
+  adminConnectors:
+    - type: http
+      port: 9001
+
+version: 0.0.1
+
+logging:
+  level: INFO
+  loggers:
+    "io.dropwizard": INFO
+    "br.com.araujo.socialnetwork":
+      level: DEBUG
+      additive: true
+      appenders:
+        - type: file
+          currentLogFilename: log/social-network-api.log
+          archivedLogFilenamePattern: log/social-network-api-%d.log.gz
+          archivedFileCount: 5
+  appenders:
+    - type: console
