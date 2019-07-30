@@ -47,7 +47,8 @@ public class UserDao implements Dao<UserBean> {
         map.remove((int) userBean.getId());
     }
 
-    public Optional<UserBean> getByUserName(String userName) {
+    @Override
+    public Optional<UserBean> getByName(String userName) {
         return map.values().stream()
                 .filter(f ->
                         f.getName().equals(userName)
