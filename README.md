@@ -1,10 +1,31 @@
 # Social-Network-API
 Api desenvolvida com o intuito de ser utilizada como controlador de redes sociais
 
----
+&nbsp;
 
 &nbsp;
-### Social Network
+
+## Utilizando o Docker
+Rodando Redis no docker para testes de desenvolvimento
+```shell script
+sudo docker run -p 6379:6379 redis 
+```
+
+Criando imagem no Docker para deploy
+```shell script
+sudo docker build -t araujo/sna:latest .
+```
+
+Rodando deploy com o docker-compose
+```shell script
+sudo docker compose-up 
+```
+ 
+
+&nbsp;
+
+&nbsp;
+## Endpoints
 
 #### **POST** */social-network*
 Adiciona uma rede social
@@ -213,27 +234,6 @@ Retorno:
     }
 ]
 ```
-
-&nbsp;
-
-&nbsp;
-
-## Docker
-Rodando Redis no docker para testes de desenvolvimento
-```shell script
-sudo docker run -p 6379:6379 redis 
-```
-
-Criando imagem no Docker para deploy
-```shell script
-sudo docker build -t araujo/sna:latest .
-```
-
-Rodando deploy com o docker-compose
-```shell script
-sudo docker compose-up 
-```
- 
 
 &nbsp;
 
