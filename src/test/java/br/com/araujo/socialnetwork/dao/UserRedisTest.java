@@ -1,6 +1,6 @@
 package br.com.araujo.socialnetwork.dao;
 
-import br.com.araujo.socialnetwork.DropwizardApp;
+import br.com.araujo.socialnetwork.DropwizardTest;
 import br.com.araujo.socialnetwork.bean.SocialNetworkBean;
 import br.com.araujo.socialnetwork.bean.UserBean;
 import br.com.araujo.socialnetwork.configuration.TestConfiguration;
@@ -16,7 +16,7 @@ import static junit.framework.TestCase.*;
 public class UserRedisTest {
     @ClassRule
     public static final DropwizardAppRule<TestConfiguration> RULE =
-            new DropwizardAppRule<>(DropwizardApp.class, ResourceHelpers.resourceFilePath("test-config.yml"));
+            new DropwizardAppRule<>(DropwizardTest.class, ResourceHelpers.resourceFilePath("test-config.yml"));
 
     final TestConfiguration.RedisConfiguration redis = RULE.getConfiguration().redis;
 

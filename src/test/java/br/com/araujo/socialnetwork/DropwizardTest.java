@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
-public class DropwizardApp extends Application<TestConfiguration> {
+public class DropwizardTest extends Application<TestConfiguration> {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private SimpleDateFormat defineDatePattern() {
