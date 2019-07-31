@@ -2,8 +2,8 @@ package br.com.araujo.socialnetwork.resources;
 
 import br.com.araujo.socialnetwork.bean.SocialNetworkBean;
 import br.com.araujo.socialnetwork.bean.UserBean;
-import br.com.araujo.socialnetwork.dao.SocialNetworkDao;
-import br.com.araujo.socialnetwork.dao.UserDao;
+import br.com.araujo.socialnetwork.dao.Dao;
+import br.com.araujo.socialnetwork.dao.UserRedis;
 import org.apache.commons.lang3.RandomUtils;
 
 import javax.ws.rs.*;
@@ -14,10 +14,10 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserResource {
-    private final UserDao userDao;
-    private final SocialNetworkDao socialNetworkDao;
+    private final Dao<SocialNetworkBean> socialNetworkDao;
+    private final UserRedis userDao;
 
-    public UserResource(SocialNetworkDao socialNetworkDao, UserDao userDao) {
+    public UserResource(Dao<SocialNetworkBean> socialNetworkDao, UserRedis userDao) {
         this.socialNetworkDao = socialNetworkDao;
         this.userDao = userDao;
     }
@@ -32,7 +32,7 @@ public class UserResource {
     public UserBean post(@BeanParam UserResourceBean userResourceBean) {
         final SocialNetworkBean socialNetworkBean = fetchSocialNetwork(userResourceBean.socialNetworkName);
 
-        if (userDao.getByName(userResourceBean.name).isPresent())
+        if (userDao.getByName(socialNetworkBean, userResourceBean.name).isPresent())
             throw new ForbiddenException("Usuário já existente!");
 
         final UserBean userBean = new UserBean(
@@ -42,7 +42,7 @@ public class UserResource {
                 socialNetworkBean
         );
         userDao.save(userBean);
-        return userDao.get(userBean.getId())
+        return userDao.get(socialNetworkBean, userBean.getId())
                 .orElseThrow(() -> new NotFoundException("Problemas ao tentar inserir usuário"));
     }
 
@@ -50,7 +50,7 @@ public class UserResource {
     @Path("/{id}")
     public UserBean getById(@PathParam("social-network") String socialNetworkName, @PathParam("id") long id) {
         final SocialNetworkBean socialNetworkBean = fetchSocialNetwork(socialNetworkName);
-        return userDao.get(id).orElseThrow(() -> new NotFoundException("Usuário não encontrado na rede social " + socialNetworkBean.name));
+        return userDao.get(socialNetworkBean, id).orElseThrow(() -> new NotFoundException("Usuário não encontrado na rede social " + socialNetworkBean.name));
     }
 
     @GET

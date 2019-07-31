@@ -3,6 +3,7 @@ package br.com.araujo.socialnetwork.bean;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.joda.time.DateTime;
 
+@SuppressWarnings("unused")
 public class UserBean {
     private long id;
     private SocialNetworkBean socialNetwork;
@@ -10,6 +11,10 @@ public class UserBean {
     private String userName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "YYYY-MM-dd HH:mm:ss.SSS")
     private DateTime creationDate;
+
+    public UserBean() {
+        this(0L, "", "", new SocialNetworkBean(0, ""));
+    }
 
     public UserBean(long id, String name, String userName, SocialNetworkBean socialNetwork) {
         this.id = id;

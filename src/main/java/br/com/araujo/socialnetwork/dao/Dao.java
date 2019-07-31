@@ -1,5 +1,7 @@
 package br.com.araujo.socialnetwork.dao;
 
+import br.com.araujo.socialnetwork.bean.SocialNetworkBean;
+
 import java.util.List;
 import java.util.Optional;
 

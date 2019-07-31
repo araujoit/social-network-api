@@ -1,7 +1,7 @@
 package br.com.araujo.socialnetwork;
 
 import br.com.araujo.socialnetwork.bean.SocialNetworkBean;
-import br.com.araujo.socialnetwork.configuration.ApplicationConfiguration;
+import br.com.araujo.socialnetwork.configuration.TestConfiguration;
 import br.com.araujo.socialnetwork.dao.Dao;
 import br.com.araujo.socialnetwork.dao.SocialNetworkRedis;
 import br.com.araujo.socialnetwork.dao.UserRedis;
@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
-public class DropwizardApp extends Application<ApplicationConfiguration> {
+public class DropwizardApp extends Application<TestConfiguration> {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private SimpleDateFormat defineDatePattern() {
@@ -25,11 +25,10 @@ public class DropwizardApp extends Application<ApplicationConfiguration> {
     }
 
     @Override
-    public void run(ApplicationConfiguration configuration, Environment environment) throws Exception {
+    public void run(TestConfiguration configuration, Environment environment) throws Exception {
         environment.getObjectMapper().setDateFormat(defineDatePattern());
 
-        final Dao<SocialNetworkBean> socialNetworkDao =
-                new SocialNetworkRedis(configuration.redis.host);
+        final Dao<SocialNetworkBean> socialNetworkDao = new SocialNetworkRedis(configuration.redis.host);
         final UserRedis userDao = new UserRedis(environment.getObjectMapper(), configuration.redis.host);
 
         environment.jersey().register(new SocialNetworkResource(socialNetworkDao));

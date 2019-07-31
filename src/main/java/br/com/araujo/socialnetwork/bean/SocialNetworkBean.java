@@ -12,4 +12,12 @@ public class SocialNetworkBean {
         this.id = id;
         this.name = name.toLowerCase();
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
