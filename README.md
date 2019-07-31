@@ -4,7 +4,7 @@ Api desenvolvida com o intuito de ser utilizada como controlador de redes sociai
 ---
 
 &nbsp;
-## Social Network
+### Social Network
 
 #### **POST** */social-network*
 Adiciona uma rede social
@@ -40,7 +40,7 @@ Busca uma rede social
 ```
 
 &nbsp;
-## User
+### User
 
 #### **POST** */social-network/{name}/user*
 Adiciona um usuário à rede social
@@ -102,7 +102,7 @@ Busca usuário na rede social
 ```
 
 &nbsp;
-## POST
+### POSTs
 
 #### **POST** */social-network/{name}/user/{id}/post*
 Adiciona um post à rede social
@@ -217,6 +217,28 @@ Retorno:
 &nbsp;
 
 &nbsp;
+
+## Docker
+Rodando Redis no docker para testes de desenvolvimento
+```shell script
+sudo docker run -p 6379:6379 redis 
+```
+
+Criando imagem no Docker para deploy
+```shell script
+sudo docker build -t araujo/sna:latest .
+```
+
+Rodando deploy com o docker-compose
+```shell script
+sudo docker compose-up 
+```
+ 
+
+&nbsp;
+
+&nbsp;
+
 ## Future Releases
 #### **DELETE** */social-network/{id}/user/{id}*
 Desativa um usuário existente
