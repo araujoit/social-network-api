@@ -8,6 +8,9 @@ import br.com.araujo.socialnetwork.dao.UserRedis;
 import br.com.araujo.socialnetwork.resources.SocialNetworkResource;
 import br.com.araujo.socialnetwork.resources.UserResource;
 import io.dropwizard.Application;
+import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
+import io.dropwizard.configuration.SubstitutingSourceProvider;
+import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +25,17 @@ public class DropwizardApp extends Application<ApplicationConfiguration> {
         final SimpleDateFormat df = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss.SSS");
         df.setTimeZone(TimeZone.getTimeZone("UTC"));
         return df;
+    }
+
+    @Override
+    public void initialize(Bootstrap<ApplicationConfiguration> bootstrap) {
+        // Enable variable substitution with environment variables
+        bootstrap.setConfigurationSourceProvider(
+                new SubstitutingSourceProvider(bootstrap.getConfigurationSourceProvider(),
+                        new EnvironmentVariableSubstitutor(false)
+                )
+        );
+
     }
 
     @Override

@@ -10,7 +10,7 @@ server:
 version: 0.0.1
 
 redis:
-  host: localhost
+  host: ${REDIS_HOST:-localhost}
 
 logging:
   level: INFO

@@ -9,6 +9,9 @@ server:
 
 version: 0.0.1
 
+redis:
+  host: ${REDIS_HOST:-localhost}
+
 logging:
   level: INFO
   loggers:
