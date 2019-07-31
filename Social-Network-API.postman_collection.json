@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "4b49ea41-74d9-4254-9f69-fd7631288993",
+		"name": "Social-Network-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cria Rede-Social",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/social-network/twitter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"social-network",
+						"twitter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtém Rede-Social",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/social-network/twitter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"social-network",
+						"twitter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cria Usuário para Rede Social",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/social-network/twitter/user?username=mussum1@mussum.com&name=Mussum",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"social-network",
+						"twitter",
+						"user"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "mussum1@mussum.com"
+						},
+						{
+							"key": "name",
+							"value": "Mussum"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtém todos os usuários da Rede Social",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/social-network/twitter/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"social-network",
+						"twitter",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtém usuário específico da Rede Social",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/social-network/twitter/user/29",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"social-network",
+						"twitter",
+						"user",
+						"29"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
