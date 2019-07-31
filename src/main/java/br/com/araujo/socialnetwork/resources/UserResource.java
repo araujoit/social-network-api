@@ -32,7 +32,7 @@ public class UserResource {
     public UserBean post(@BeanParam UserResourceBean userResourceBean) {
         final SocialNetworkBean socialNetworkBean = fetchSocialNetwork(userResourceBean.socialNetworkName);
 
-        if (userDao.getByName(socialNetworkBean, userResourceBean.name).isPresent())
+        if (userDao.getByName(socialNetworkBean, userResourceBean.userName).isPresent())
             throw new ForbiddenException("Usuário já existente!");
 
         final UserBean userBean = new UserBean(
