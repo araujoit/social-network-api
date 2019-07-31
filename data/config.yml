@@ -7,8 +7,6 @@ server:
     - type: http
       port: 81
 
-version: 0.0.1
-
 redis:
   host: ${REDIS_HOST:-localhost}
 

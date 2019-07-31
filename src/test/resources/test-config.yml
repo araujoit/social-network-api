@@ -7,8 +7,6 @@ server:
     - type: http
       port: 8001
 
-version: 0.0.1
-
 redis:
   host: localhost
 
