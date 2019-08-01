@@ -16,9 +16,9 @@ Criando imagem no Docker para deploy
 sudo docker build -t araujo/sna:latest .
 ```
 
-Rodando deploy com o docker-compose
+Subindo container da imagem criada + Redis no docker com o docker-compose
 ```shell script
-sudo docker compose-up 
+sudo docker-compose up 
 ```
  
 
