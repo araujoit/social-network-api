@@ -5,21 +5,20 @@ Api desenvolvida com o intuito de ser utilizada como controlador de redes sociai
 
 &nbsp;
 
-## Utilizando o Docker
+## Docker
+
+### Recursos para Desenvolvimento
 Rodando Redis no docker para testes de desenvolvimento
 ```shell script
 sudo docker run -p 6379:6379 redis 
 ```
 
-Criando imagem no Docker para deploy
+### Deploy
+Build da imagem
 ```shell script
 sudo docker build -t araujo/sna:latest .
 ```
 
-Subindo container da imagem criada + Redis no docker com o docker-compose
-```shell script
-sudo docker-compose up 
-```
  
 
 &nbsp;
