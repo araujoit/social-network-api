@@ -1,0 +1,39 @@
+<html>
+    <header>
+        <title>::API::</title>
+        <meta charset="utf-8" />
+        <style>
+            th {
+                border: 1px solid black;
+            }
+        </style>
+    </header>
+    <body>
+        <div id="container">
+            <section id="endpoints-table">
+                <table>
+                    <caption>Endpoints</caption>
+                    <thead>
+                        <tr>
+                            <th>Social Network</th>
+                            <th>Users</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>POST    /api/social-network/{social-network}/user</td>
+                        <td>GET     /api/social-network/{name}</td>
+                    </tr>
+                    <tr>
+                        <td>POST    /api/social-network/{name}</td>
+                        <td>GET     /api/social-network/{social-network}/user</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>GET     /api/social-network/{social-network}/user/{id}</td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </body>
+</html>

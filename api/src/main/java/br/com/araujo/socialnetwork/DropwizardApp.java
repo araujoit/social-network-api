@@ -5,6 +5,7 @@ import br.com.araujo.socialnetwork.configuration.ApplicationConfiguration;
 import br.com.araujo.socialnetwork.dao.Dao;
 import br.com.araujo.socialnetwork.dao.SocialNetworkRedis;
 import br.com.araujo.socialnetwork.dao.UserRedis;
+import br.com.araujo.socialnetwork.resources.ApiResource;
 import br.com.araujo.socialnetwork.resources.SocialNetworkResource;
 import br.com.araujo.socialnetwork.resources.UserResource;
 import io.dropwizard.Application;
@@ -46,6 +47,7 @@ public class DropwizardApp extends Application<ApplicationConfiguration> {
                 new SocialNetworkRedis(configuration.redis.host);
         final UserRedis userDao = new UserRedis(environment.getObjectMapper(), configuration.redis.host);
 
+        environment.jersey().register(new ApiResource());
         environment.jersey().register(new SocialNetworkResource(socialNetworkDao));
         environment.jersey().register(new UserResource(socialNetworkDao, userDao));
 
