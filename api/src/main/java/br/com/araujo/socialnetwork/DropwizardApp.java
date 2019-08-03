@@ -2,6 +2,7 @@ package br.com.araujo.socialnetwork;
 
 import br.com.araujo.socialnetwork.bean.SocialNetworkBean;
 import br.com.araujo.socialnetwork.configuration.ApplicationConfiguration;
+import br.com.araujo.socialnetwork.configuration.bundle.CorsBundle;
 import br.com.araujo.socialnetwork.dao.Dao;
 import br.com.araujo.socialnetwork.dao.SocialNetworkRedis;
 import br.com.araujo.socialnetwork.dao.UserRedis;
@@ -36,6 +37,7 @@ public class DropwizardApp extends Application<ApplicationConfiguration> {
                         new EnvironmentVariableSubstitutor(false)
                 )
         );
+        bootstrap.addBundle(new CorsBundle());
 
     }
 
