@@ -1,17 +1,26 @@
 version: '3.2'
 services:
-  nginx:
-    image: sna-nginx
+  static_web:
+    image: sna-nginx:latest
     build:
       context: ./website
     depends_on:
       - api
     ports:
       - "3000:80"
-    networks:
-      - sna
     volumes:
       - /home/araujo/_development/social-network/website/html:/usr/share/nginx/html
+  react_web:
+    image: araujo/sna-react:latest
+    build:
+      context: ./website-react
+    depends_on:
+      - api
+    ports:
+      - "3001:3000"
+    volumes:
+      - /home/araujo/_development/social-network/website-react:/app
+      - /app/node_modules
   api:
     image: araujo/sna:latest
     build:
@@ -21,7 +30,7 @@ services:
     environment:
       - REDIS_HOST=redis
     ports:
-      - "3001:80"
+      - "4000:80"
   redis:
     image: redis
     command: redis-server
@@ -30,10 +39,5 @@ services:
     volumes:
       - redis_data:/data
 
-networks:
-  sna:
-    driver: bridge
-
 volumes:
-  website:
   redis_data:
