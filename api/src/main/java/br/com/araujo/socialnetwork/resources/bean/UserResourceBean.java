@@ -1,4 +1,4 @@
-package br.com.araujo.socialnetwork.resources;
+package br.com.araujo.socialnetwork.resources.bean;
 
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;

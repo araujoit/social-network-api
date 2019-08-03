@@ -4,13 +4,14 @@ import br.com.araujo.socialnetwork.bean.SocialNetworkBean;
 import br.com.araujo.socialnetwork.bean.UserBean;
 import br.com.araujo.socialnetwork.dao.Dao;
 import br.com.araujo.socialnetwork.dao.UserRedis;
+import br.com.araujo.socialnetwork.resources.bean.UserResourceBean;
 import org.apache.commons.lang3.RandomUtils;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/social-network/{social-network}/user")
+@Path("/api/social-network/{social-network}/user")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserResource {
