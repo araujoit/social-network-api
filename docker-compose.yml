@@ -30,7 +30,7 @@ services:
     environment:
       - REDIS_HOST=redis
     ports:
-      - "4000:80"
+      - "4000:3000"
   redis:
     image: redis
     command: redis-server
