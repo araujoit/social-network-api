@@ -1,0 +1,18 @@
+.SocialNetwork {
+    width: 100wh;
+}
+
+.SocialNetwork .list, .SocialNetwork .users {
+    background-color: orange;
+    width: 50wh;
+    min-height: 30vh;
+}
+
+.SocialNetwork .list .title {
+    align-content: center;
+    font-weight: bold;
+}
+
+.SocialNetwork .list .item {
+    list-style-type: none;
+}
