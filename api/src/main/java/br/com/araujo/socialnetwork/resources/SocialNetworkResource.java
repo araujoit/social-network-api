@@ -7,6 +7,7 @@ import org.apache.commons.lang3.RandomUtils;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/api/social-network")
 @Produces(MediaType.APPLICATION_JSON)
@@ -16,6 +17,13 @@ public class SocialNetworkResource {
 
     public SocialNetworkResource(Dao<SocialNetworkBean> socialNetworkDao) {
         this.socialNetworkDao = socialNetworkDao;
+    }
+
+    @GET
+    @Path("/")
+    public List<SocialNetworkBean> getAll() {
+        return socialNetworkDao
+                .getAll();
     }
 
     @GET
