@@ -2,7 +2,7 @@ package br.com.araujo.socialnetwork.dao;
 
 import br.com.araujo.socialnetwork.bean.SocialNetworkBean;
 import br.com.araujo.socialnetwork.bean.UserBean;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -18,7 +18,7 @@ public class UserDao implements Dao<UserBean> {
 
     @Override
     public List<UserBean> getAll() {
-        throw new NotImplementedException();
+        throw new NotImplementedException("Eita");
     }
 
     public List<UserBean> getAll(SocialNetworkBean socialNetworkBean) {
