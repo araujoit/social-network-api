@@ -8,6 +8,8 @@ import br.com.araujo.socialnetwork.dao.UserRedis;
 import br.com.araujo.socialnetwork.resources.ApiResource;
 import br.com.araujo.socialnetwork.resources.SocialNetworkResource;
 import br.com.araujo.socialnetwork.resources.UserResource;
+import com.smoketurner.dropwizard.consul.ConsulBundle;
+import com.smoketurner.dropwizard.consul.ConsulFactory;
 import io.dropwizard.Application;
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
@@ -36,7 +38,13 @@ public class DropwizardApp extends Application<ApplicationConfiguration> {
                         new EnvironmentVariableSubstitutor(false)
                 )
         );
-
+        // Enable consul register
+        bootstrap.addBundle(new ConsulBundle<ApplicationConfiguration>(getName()) {
+            @Override
+            public ConsulFactory getConsulFactory(ApplicationConfiguration configuration) {
+                return configuration.getConsulFactory();
+            }
+        });
     }
 
     @Override

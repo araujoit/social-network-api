@@ -13,6 +13,24 @@ Rodando Redis no docker para testes de desenvolvimento
 sudo docker run -p 6379:6379 redis 
 ```
 
+## Consul
+Rodando
+> docker run -d --name consul -p 8500:8500 -p 8600:8600 consul
+
+Configuração:
+```yaml
+consul:
+  # Optional properties
+  # endpoint for consul (defaults to localhost:8500)
+  endpoint: localhost:8500
+  # service port
+  servicePort: 8080
+  # check interval frequency
+  checkInterval: 1 second
+```
+>Acesse http://localhost:8500/
+
+
 ### Deploy
 Build da imagem
 ```shell script

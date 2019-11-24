@@ -10,6 +10,15 @@ server:
 redis:
   host: ${REDIS_HOST:-localhost}
 
+consul:
+  # Optional properties
+  # endpoint for consul (defaults to localhost:8500)
+  endpoint: localhost:8500
+  # service port
+  servicePort: 8080
+  # check interval frequency
+  checkInterval: 1 second
+
 logging:
   level: INFO
   loggers:
