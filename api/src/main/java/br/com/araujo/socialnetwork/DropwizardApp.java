@@ -38,13 +38,9 @@ public class DropwizardApp extends Application<ApplicationConfiguration> {
                         new EnvironmentVariableSubstitutor(false)
                 )
         );
-        // Enable consul register
-        bootstrap.addBundle(new ConsulBundle<ApplicationConfiguration>(getName()) {
-            @Override
-            public ConsulFactory getConsulFactory(ApplicationConfiguration configuration) {
-                return configuration.getConsulFactory();
-            }
-        });
+
+        // Add Consul Bundle
+        bootstrap.addBundle(new MyConsulConfiguration("network"));
     }
 
     @Override
@@ -60,5 +56,23 @@ public class DropwizardApp extends Application<ApplicationConfiguration> {
         environment.jersey().register(new UserResource(socialNetworkDao, userDao));
 
         logger.info("Social-Network-API iniciado com sucesso!");
+    }
+
+    private static final class MyConsulConfiguration extends ConsulBundle<ApplicationConfiguration> {
+
+        @SuppressWarnings("WeakerAccess")
+        public MyConsulConfiguration(String name) {
+            super(name);
+        }
+
+        @Override
+        public void initialize(Bootstrap<?> bootstrap) {
+            super.initialize(bootstrap);
+        }
+
+        @Override
+        public ConsulFactory getConsulFactory(ApplicationConfiguration configuration) {
+            return configuration.consul;
+        }
     }
 }

@@ -2,10 +2,10 @@
 server:
   applicationConnectors:
     - type: http
-      port: 3000
+      port: 5000
   adminConnectors:
     - type: http
-      port: 3001
+      port: 5001
 
 redis:
   host: ${REDIS_HOST:-localhost}
@@ -14,10 +14,12 @@ consul:
   # Optional properties
   # endpoint for consul (defaults to localhost:8500)
   endpoint: localhost:8500
-  # service port
-  servicePort: 8080
+  # serviceId
+  serviceId: social-network-api
   # check interval frequency
   checkInterval: 1 second
+  # retry interval frequency
+  retryInterval: 5 seconds
 
 logging:
   level: INFO
