@@ -7,8 +7,8 @@ jdk: oraclejdk8
 
 cache:
   directories:
-    - ./api/.gradle/caches/
-    - ./api/.gradle/wrapper/
+    - .gradle/caches/
+    - .gradle/wrapper/
 
 script:
-  - ./api/gradlew build
+  - gradlew build
