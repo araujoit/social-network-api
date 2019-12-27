@@ -1,4 +1,4 @@
-# Social-Network-API
+# Social-Network-API [![Build Status](https://travis-ci.com/araujoit/social-network-api.svg?branch=master)](https://travis-ci.com/araujoit/social-network-api)
 Projeto desenvolvido com o intuito de subir no docker a arquitetura básica para um website.
 
 &nbsp;
