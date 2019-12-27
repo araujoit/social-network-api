@@ -1,0 +1,14 @@
+language: java
+install: true
+
+os: linux
+dist: trusty
+jdk: oraclejdk8
+
+cache:
+  directories:
+    - $HOME/api/.gradle/caches/
+    - $HOME/api/.gradle/wrapper/
+
+script:
+  - $HOME/api/gradlew build
