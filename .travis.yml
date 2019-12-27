@@ -11,4 +11,4 @@ cache:
     - .gradle/wrapper/
 
 script:
-  - .\api\gradlew build
+  - ./api/gradlew build
