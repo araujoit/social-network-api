@@ -1,0 +1,27 @@
+# Change default server ports
+server:
+  applicationConnectors:
+    - type: http
+      port: 8888
+  adminConnectors:
+    - type: http
+      port: 8889
+
+redis:
+  host: localhost
+
+logging:
+  level: INFO
+  loggers:
+    "br.com.araujo.socialnetwork.dao": TRACE
+    "io.dropwizard": INFO
+    "br.com.araujo.socialnetwork":
+      level: DEBUG
+      additive: true
+      appenders:
+        - type: file
+          currentLogFilename: log/social-network-api.log
+          archivedLogFilenamePattern: log/social-network-api-%d.log.gz
+          archivedFileCount: 5
+  appenders:
+    - type: console
