@@ -1,4 +1,4 @@
-# Social-Network-API
+# Social-Network-API [![Build Status](https://travis-ci.com/araujoit/Social-Network-Api-Website.svg?branch=master)](https://travis-ci.com/araujoit/Social-Network-Api-Website)
 Api desenvolvida com o intuito de ser utilizada como controlador de redes sociais
 
 &nbsp;
