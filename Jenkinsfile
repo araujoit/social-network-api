@@ -18,10 +18,17 @@ pipeline {
       }
       stage('Test') {
          steps {
-
             // Run Tests.
             dir('api') {
                 sh "./gradlew test"
+            }
+         }
+      }
+      stage('Package') {
+         steps {
+            // Generate runnable Jar
+            dir('api') {
+               sh "./gradlew clean shadowJar"
             }
          }
       }
